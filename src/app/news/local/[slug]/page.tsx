@@ -4,7 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/news/Breadcrumbs";
 import NewsCard, { NewsGrid, formatDate } from "@/components/news/NewsCard";
-import { newsArticles } from "@/lib/content";
+import PostBody from "@/components/news/PostBody";
+import { localNews, newsArticles } from "@/lib/content";
 import { SITE_NAME, absolute } from "@/lib/site";
 import styles from "../../page.module.css";
 
@@ -43,8 +44,12 @@ export default async function LocalArticle({ params }: Props) {
   const a = newsArticles.find((x) => x.slug === slug);
   if (!a) notFound();
 
+  const post = localNews.find((x) => x.slug === a.slug);
   const related = newsArticles.filter((x) => x.slug !== a.slug).slice(0, 3);
-  const isLogo = a.image ? /member-|partners\//.test(a.image) : false;
+  const heroImage = post?.image || a.image;
+  const isLogo = post?.imageFit === "contain" || (heroImage ? /member-|partners\//.test(heroImage) : false);
+  const video = post?.video || a.video;
+  const gallery = post?.gallery || a.gallery;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -54,7 +59,7 @@ export default async function LocalArticle({ params }: Props) {
     datePublished: a.date,
     dateModified: a.date,
     articleSection: a.tag,
-    image: [absolute(a.image || "/images/hero-radios.jpg")],
+    image: [absolute(heroImage || "/images/hero-radios.jpg")],
     mainEntityOfPage: absolute(`/news/local/${a.slug}`),
     author: { "@type": "Organization", name: SITE_NAME, url: absolute("/") },
     publisher: { "@type": "Organization", name: SITE_NAME, logo: { "@type": "ImageObject", url: absolute("/images/logo-transparent.png") } },
@@ -85,28 +90,35 @@ export default async function LocalArticle({ params }: Props) {
 
       <section className={styles.section}>
         <div className={`wrap ${styles.article}`}>
-          {a.image && (
+          {heroImage && (
             <div className={styles.articleHero}>
-              <Image src={a.image} alt={a.title} fill priority sizes="(max-width: 860px) 100vw, 820px" className={isLogo ? styles.articleHeroContain : styles.img} />
+              <Image src={heroImage} alt={a.title} fill priority sizes="(max-width: 860px) 100vw, 820px" className={isLogo ? styles.articleHeroContain : styles.img} />
             </div>
           )}
-          <div className={styles.articleBody}>
-            {a.body.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-          {a.gallery && (
-            <div className={styles.gallery}>
-              {a.gallery.map((src) => (
-                <div className={styles.galleryItem} key={src}>
-                  <Image src={src} alt="" fill sizes="270px" className={styles.img} />
-                </div>
+          {post ? (
+            <PostBody blocks={post.body} className={styles.articleBody} />
+          ) : (
+            <div className={styles.articleBody}>
+              {a.body.map((p, i) => (
+                <p key={i}>{p}</p>
               ))}
             </div>
           )}
+          {gallery && (
+            <>
+              {post?.galleryTitle && <h2 className={styles.galleryTitle}>{post.galleryTitle}</h2>}
+              <div className={styles.gallery}>
+                {gallery.map((src) => (
+                  <a className={styles.galleryItem} key={src} href={src} target="_blank" rel="noreferrer">
+                    <Image src={src} alt="" fill sizes="(max-width: 700px) 50vw, 270px" className={styles.img} />
+                  </a>
+                ))}
+              </div>
+            </>
+          )}
           <div className={styles.actions}>
-            {a.video && (
-              <a href={a.video} target="_blank" rel="noreferrer" className={styles.btn}>Watch the demonstration</a>
+            {video && (
+              <a href={video} target="_blank" rel="noreferrer" className={styles.btn}>Watch the demonstration</a>
             )}
             <Link href="/news/local" className={styles.btnGhost}>← All local news</Link>
           </div>

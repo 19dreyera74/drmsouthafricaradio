@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -7,22 +7,11 @@ import ChatWidget from "@/components/ChatWidget";
 import { SITE_URL, SITE_NAME, absolute } from "@/lib/site";
 import { siteMeta } from "@/lib/content";
 
-const display = Space_Grotesk({
-  variable: "--font-display",
+// drmsa.org uses Noto Sans for everything, so every font role points at it.
+const notoSans = Noto_Sans({
+  variable: "--font-noto-sans",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const body = IBM_Plex_Sans({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const mono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
 });
 
 const DESCRIPTION =
@@ -78,7 +67,8 @@ const orgJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-ZA" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en-ZA" className={notoSans.variable}>
+
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <Nav />

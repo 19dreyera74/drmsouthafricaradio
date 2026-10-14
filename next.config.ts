@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/privacy-policy", destination: "/privacy", permanent: true },
+      // Posts briefly lived at /news/<slug> before the Local/Global split.
+      { source: "/news/:slug((?!local$|global$)[^/]+)", destination: "/news/local/:slug", permanent: true },
     ];
   },
 };

@@ -24,7 +24,7 @@ export default function NewsCard({ href, title, date, tag, excerpt, image }: Pro
           alt=""
           fill
           sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 400px"
-          className={`${styles.cover} ${image && /member-|partners\//.test(image) ? styles.logoFit : ""}`}
+          className={`${styles.cover} ${image && /member-|partners\/|news\/(hot1027|lsofsa)\./.test(image) ? styles.logoFit : ""}`}
         />
       </div>
       <div className={styles.cardBody}>
