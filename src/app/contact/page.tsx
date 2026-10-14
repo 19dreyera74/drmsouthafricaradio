@@ -5,8 +5,9 @@ import { siteMeta } from "@/lib/content";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact — DRM SA Group",
-  description: "Get in touch with the DRM SA Group.",
+  title: "Contact DRM SA Group",
+  alternates: { canonical: "/contact" },
+  description: "Contact DRM SA Group about Digital Radio Mondiale in South Africa, DRM membership, demonstrations and partnerships. Call +27 76 504 7794 or email info@drmsa.org.",
 };
 
 export default function ContactPage() {

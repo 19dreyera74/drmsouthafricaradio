@@ -8,7 +8,8 @@ import { whatIsDrm } from "@/lib/content";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "What is DRM — DRM SA Group",
+  title: "What is DRM? Digital Radio Mondiale Explained",
+  alternates: { canonical: "/what-is-drm" },
   description:
     "Digital Radio Mondiale (DRM) is the open, ITU-recommended, ETSI-published digital radio standard covering AM, FM, SW and VHF.",
 };

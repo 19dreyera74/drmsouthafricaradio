@@ -7,8 +7,9 @@
   padding-top: var(--section-pad);
   padding-bottom: var(--section-pad);
   background: var(--bg-elevated);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  /* full-bleed band: background runs edge to edge while content stays in .wrap */
+  box-shadow: 0 0 0 100vmax var(--bg-elevated);
+  clip-path: inset(0 -100vmax);
 }
 
 .lead {

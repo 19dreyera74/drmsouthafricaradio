@@ -1,0 +1,134 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 260ms var(--ease-out), box-shadow 260ms var(--ease-out), border-color 260ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-dim);
+    box-shadow: 0 20px 40px -24px rgba(18, 95, 180, 0.35);
+  }
+  .card:hover .cover {
+    transform: scale(1.04);
+  }
+}
+
+.cardImg {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-tint);
+  overflow: hidden;
+}
+
+.cover {
+  object-fit: cover;
+  transition: transform 600ms var(--ease-out);
+}
+
+.logoFit {
+  object-fit: contain;
+  padding: 12% 18%;
+  background: #fff;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 22px 22px;
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.tag {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.excerpt {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.more {
+  margin-top: auto;
+  padding-top: 6px;
+  color: var(--navy);
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+.crumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.crumbs li + li::before {
+  content: "›";
+  margin-right: 6px;
+  color: var(--text-faint);
+}
+
+.crumbs a {
+  color: var(--navy);
+}
+
+.crumbs a:hover {
+  text-decoration: underline;
+}
+
+.crumbsLight ol,
+.crumbsLight li + li::before {
+  color: var(--hero-text-muted);
+}
+
+.crumbsLight a {
+  color: var(--hero-text);
+}

@@ -6,7 +6,8 @@ import { about } from "@/lib/content";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "About Us — DRM SA Group",
+  title: "About DRM SA Group – Digital Radio in South Africa",
+  alternates: { canonical: "/about-us" },
   description:
     "DRM SA Group is the revitalised voice of digital radio in South Africa, preparing the region's radio landscape for its digital evolution.",
 };

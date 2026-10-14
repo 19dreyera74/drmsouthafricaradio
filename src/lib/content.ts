@@ -61,15 +61,25 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-type Member = { name: string; logo?: string; note: string };
+type Partner = { name: string; logo?: string; note: string };
 
-export const members: Member[] = [
-  { name: "HOT 102.7FM", logo: "/images/member-hot1027.png", note: "Commercial broadcaster" },
-  { name: "LSofSA", logo: "/images/member-lsofsa.png", note: "RF engineering, est. 1999" },
-  { name: "Radio Pulpit", note: "DRM AM & FM pioneer" },
+// Members and technology partners DRM SA has worked with. Logos come from the
+// DRM SA site archive.
+export const partners: Partner[] = [
+  { name: "Radio Pulpit", logo: "/images/partners/radio-pulpit.jpg", note: "DRM AM & FM pioneer" },
+  { name: "HOT 102.7FM", logo: "/images/partners/hot1027.png", note: "Commercial broadcaster" },
+  { name: "BluLemon", logo: "/images/partners/blulemon.jpg", note: "Transmitter & antenna systems" },
+  { name: "LSofSA", logo: "/images/partners/lsofsa.png", note: "RF engineering, est. 1999" },
+  { name: "Pulpit Media Group", logo: "/images/partners/pulpit-media-group.jpg", note: "Broadcaster group" },
+  { name: "Radio Kansel 657AM", logo: "/images/partners/radio-kansel.jpg", note: "AM broadcaster" },
+  { name: "Cape Pulpit 729AM", logo: "/images/partners/cape-pulpit.jpg", note: "AM broadcaster" },
+  { name: "Broadcom International", logo: "/images/partners/broadcom.jpg", note: "Broadcast engineering" },
   { name: "Kofifi FM 97.2", note: "Community broadcaster" },
-  { name: "BluLemon", note: "Transmitter & antenna systems" },
-  { name: "Sentech", note: "National signal distributor" },
+  { name: "Fraunhofer IIS", note: "DRM ContentServer & MultimediaPlayer" },
+  { name: "RFmondial", note: "DRM technology" },
+  { name: "Starwaves", note: "DRM receivers" },
+  { name: "Gospell", note: "DRM receivers" },
+  { name: "DRM Consortium", note: "Global standards body" },
 ];
 
 export const membershipTiers = [
@@ -110,7 +120,7 @@ export const membershipTiers = [
 type NewsArticle = {
   slug: string;
   date: string;
-  category: string;
+  tag: string;
   title: string;
   excerpt: string;
   body: string[];
@@ -119,11 +129,13 @@ type NewsArticle = {
   gallery?: string[];
 };
 
-export const newsArticles: NewsArticle[] = [
+export type { NewsArticle };
+
+const articles: NewsArticle[] = [
   {
     slug: "mozambique-collaboration",
     date: "2026-04-15",
-    category: "Local News",
+    tag: "Regional",
     title: "Strengthening regional collaboration in digital broadcasting",
     excerpt:
       "We hosted the delegation from INCM Mozambique and Radio Mozambique at the DRM South Africa demonstration site for a strategic engagement on the future of digital radio across the continent.",
@@ -138,7 +150,7 @@ export const newsArticles: NewsArticle[] = [
   {
     slug: "fm-demonstration-launch",
     date: "2026-02-13",
-    category: "Local News",
+    tag: "Demonstrations",
     title: "South Africa launches DRM in FM demonstration on 91.25 MHz",
     excerpt:
       "The DRM Southern Africa Group has officially launched its DRM in FM demonstration from the Northcliff site in Johannesburg, broadcasting Radio Pulpit and HOT 102.7 on a single frequency.",
@@ -154,7 +166,7 @@ export const newsArticles: NewsArticle[] = [
   {
     slug: "world-radio-day-training",
     date: "2026-01-20",
-    category: "Global",
+    tag: "Events",
     title: "Free training and special broadcasts for UNESCO World Radio Day 2026",
     excerpt:
       "The DRM Consortium showcased AI-enabled e-learning via digital radio, with live training sessions and first-ever global demonstration broadcasts across five continents.",
@@ -168,7 +180,7 @@ export const newsArticles: NewsArticle[] = [
   {
     slug: "hot1027-joins",
     date: "2025-11-03",
-    category: "Partnerships",
+    tag: "Partnerships",
     title: "HOT 102.7FM joins the DRM SA family",
     excerpt:
       "One of South Africa's fastest-growing and most innovative commercial radio stations has officially joined the DRM South Africa Group as a member.",
@@ -182,7 +194,7 @@ export const newsArticles: NewsArticle[] = [
   {
     slug: "icasa-test-licence",
     date: "2025-09-18",
-    category: "Local News",
+    tag: "Regulatory",
     title: "DRM SA Group secures ICASA test licence for DRM in FM demonstrations",
     excerpt:
       "A major milestone in the digital radio journey, with the approval of a test licence enabling the DRM in FM demonstration to proceed.",
@@ -196,7 +208,7 @@ export const newsArticles: NewsArticle[] = [
   {
     slug: "lsofsa-joins",
     date: "2025-07-22",
-    category: "Partnerships",
+    tag: "Partnerships",
     title: "Welcoming LSofSA to DRM Southern Africa",
     excerpt:
       "With a legacy dating back to 1999, LSofSA brings deep expertise in radio-frequency engineering to the newest member of our regional DRM community.",
@@ -209,7 +221,7 @@ export const newsArticles: NewsArticle[] = [
   {
     slug: "first-webinar",
     date: "2025-10-09",
-    category: "Global",
+    tag: "Events",
     title: "First DRM webinar successfully organised by the DRM SA Group",
     excerpt:
       "Broadcasters, industry experts and technology partners explored the progress and potential of Digital Radio Mondiale in South Africa.",
@@ -222,6 +234,10 @@ export const newsArticles: NewsArticle[] = [
     gallery: ["/images/webinar-poll-1.png", "/images/webinar-poll-2.png", "/images/webinar-poll-3.png"],
   },
 ];
+
+export const newsArticles = [...articles].sort((a, b) => b.date.localeCompare(a.date));
+
+export const newsTags = [...new Set(newsArticles.map((a) => a.tag))];
 
 export const whatIsDrm = {
   intro:

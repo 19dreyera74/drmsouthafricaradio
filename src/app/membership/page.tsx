@@ -7,7 +7,8 @@ import { membershipTiers, siteMeta } from "@/lib/content";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Membership — DRM SA Group",
+  title: "DRM Membership for Broadcasters in South Africa",
+  alternates: { canonical: "/membership" },
   description:
     "Three membership tiers for broadcasters, institutions and independent creators driving DRM adoption across Southern Africa.",
 };

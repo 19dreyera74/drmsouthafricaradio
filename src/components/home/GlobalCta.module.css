@@ -4,6 +4,9 @@
   padding-bottom: var(--section-pad);
   background: var(--bg-tint);
   overflow: hidden;
+  /* full-bleed band: background runs edge to edge while content stays in .wrap */
+  box-shadow: 0 0 0 100vmax var(--bg-tint);
+  clip-path: inset(0 -100vmax);
 }
 
 .grid {

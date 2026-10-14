@@ -1,33 +1,42 @@
 import Image from "next/image";
 import styles from "./MemberWall.module.css";
 import Reveal from "@/components/Reveal";
-import { members } from "@/lib/content";
+import { partners } from "@/lib/content";
 
+// Continuous right-to-left logo strip. The list is rendered twice so the
+// loop is seamless; the second copy is hidden from screen readers.
 export default function MemberWall() {
-  return (
-    <section className={`${styles.section} wrap`}>
-      <Reveal as="div" className={styles.head}>
-        <h2 className={styles.title}>A growing regional network</h2>
-        <p className={styles.subtitle}>
-          Broadcasters, engineers and signal distributors already building South Africa&apos;s
-          digital radio future with us.
-        </p>
-      </Reveal>
+  const row = (hidden: boolean) =>
+    partners.map((p) => (
+      <li key={`${p.name}-${hidden}`} className={styles.item} aria-hidden={hidden || undefined}>
+        {p.logo ? (
+          <span className={styles.logoBox}>
+            <Image src={p.logo} alt={hidden ? "" : p.name} fill sizes="180px" className={styles.logo} />
+          </span>
+        ) : (
+          <span className={styles.wordmark}>{p.name}</span>
+        )}
+        <span className={styles.note}>{p.note}</span>
+      </li>
+    ));
 
-      <Reveal as="div" delay={80}>
-        <div className={styles.grid}>
-          {members.map((m) => (
-            <div key={m.name} className={styles.cell}>
-              {m.logo ? (
-                <Image src={m.logo} alt={m.name} width={140} height={40} className={styles.logoImg} />
-              ) : (
-                <span className={styles.nameOnly}>{m.name}</span>
-              )}
-              <span className={styles.note}>{m.note}</span>
-            </div>
-          ))}
-        </div>
-      </Reveal>
+  return (
+    <section className={styles.section}>
+      <div className="wrap">
+        <Reveal as="div" className={styles.head}>
+          <h2 className={styles.title}>Partners and members</h2>
+          <p className={styles.subtitle}>
+            Broadcasters, engineers and technology partners building South Africa&apos;s digital radio
+            future with us.
+          </p>
+        </Reveal>
+      </div>
+      <div className={styles.viewport}>
+        <ul className={styles.track}>
+          {row(false)}
+          {row(true)}
+        </ul>
+      </div>
     </section>
   );
 }
