@@ -74,7 +74,6 @@ export const partners: Partner[] = [
   { name: "Radio Kansel 657AM", logo: "/images/partners/radio-kansel.jpg", note: "AM broadcaster" },
   { name: "Cape Pulpit 729AM", logo: "/images/partners/cape-pulpit.jpg", note: "AM broadcaster" },
   { name: "Broadcom International", logo: "/images/partners/broadcom.jpg", note: "Broadcast engineering" },
-  { name: "Kofifi FM 97.2", logo: "/images/partners/kofifi-fm.png", note: "Community broadcaster" },
   { name: "Fraunhofer IIS", logo: "/images/partners/fraunhofer-iis.svg", note: "DRM ContentServer & MultimediaPlayer" },
   { name: "RFmondial", logo: "/images/partners/rfmondial.png", note: "DRM technology" },
   { name: "Starwaves", logo: "/images/partners/starwaves.jpg", note: "DRM receivers" },
