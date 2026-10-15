@@ -1,5 +1,5 @@
-.section {
-  padding: 172px var(--gutter) var(--section-pad);
+﻿.section {
+  padding: 200px var(--gutter) var(--section-pad);
   max-width: 1280px;
   margin: 0 auto;
 }

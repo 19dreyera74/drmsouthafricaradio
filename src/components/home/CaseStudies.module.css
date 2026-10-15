@@ -25,27 +25,52 @@
   max-width: 42ch;
 }
 
+/* Five cards: 3 + 2 on desktop, 2-up on tablet, 1-up on phones. Stays inside
+   the page gutter so no card is ever clipped at the screen edge. */
 .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 12px;
-  margin: 0 calc(var(--gutter) * -1);
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-
-.row::-webkit-scrollbar {
-  height: 8px;
 }
 
 .cardSlot {
-  scroll-snap-align: start;
-  flex: 0 0 clamp(280px, 34vw, 400px);
+  grid-column: span 2;
+  display: flex;
+}
+
+.cardSlot:nth-child(4),
+.cardSlot:nth-child(5) {
+  grid-column: span 3;
+}
+
+.cardSlot > * {
+  flex: 1;
+}
+
+@media (max-width: 1000px) {
+  .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cardSlot,
+  .cardSlot:nth-child(4) {
+    grid-column: span 1;
+  }
+  .cardSlot:nth-child(5) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cardSlot:nth-child(5) {
+    grid-column: span 1;
+  }
 }
 
 .card {
+  height: 100%;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 18px;

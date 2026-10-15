@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import PageHero from "@/components/PageHero";
 import Breadcrumbs from "@/components/news/Breadcrumbs";
 import NewsCard, { NewsGrid } from "@/components/news/NewsCard";
 import { newsArticles } from "@/lib/content";
@@ -26,18 +27,17 @@ export default async function NewsPage() {
 
   return (
     <main>
-      <header className={styles.header}>
-        <div className="wrap">
-          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "News" }]} />
-          <h1 className={styles.title}>DRM news, local and global</h1>
-          <p className={styles.sub}>
-            What DRM SA is doing in South Africa, and what is happening with Digital Radio Mondiale
-            around the world.
-          </p>
-        </div>
-      </header>
+      <PageHero
+        title="DRM news, local and global"
+        sub="What DRM SA is doing in South Africa, and what is happening with Digital Radio Mondiale around the world."
+        image="/images/ibc-booth.jpg"
+      />
 
-      <section className={styles.section} id="local">
+      <div className={`wrap ${styles.crumbBar}`}>
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "News" }]} />
+      </div>
+
+      <section className={styles.sectionAfterCrumbs} id="local">
         <div className="wrap">
           <div className={styles.sectionHead}>
             <div>

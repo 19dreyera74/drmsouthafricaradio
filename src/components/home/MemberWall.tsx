@@ -11,7 +11,7 @@ export default function MemberWall() {
       <li key={`${p.name}-${hidden}`} className={styles.item} aria-hidden={hidden || undefined}>
         {p.logo ? (
           <span className={styles.logoBox}>
-            <Image src={p.logo} alt={hidden ? "" : p.name} fill sizes="180px" className={styles.logo} />
+            <Image src={p.logo} alt={hidden ? "" : p.name} fill sizes="180px" loading="eager" unoptimized={p.logo.endsWith(".svg")} className={styles.logo} />
           </span>
         ) : (
           <span className={styles.wordmark}>{p.name}</span>

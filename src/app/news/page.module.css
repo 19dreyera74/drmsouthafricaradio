@@ -1,5 +1,5 @@
 ﻿.header {
-  padding: 172px 0 56px;
+  padding: 200px 0 56px;
   background: linear-gradient(170deg, var(--bg-tint), var(--bg) 75%);
   border-bottom: 1px solid var(--line);
 }
@@ -19,6 +19,14 @@
 
 .section {
   padding: clamp(64px, 8vw, 104px) 0;
+}
+
+.crumbBar {
+  padding-top: 28px;
+}
+
+.sectionAfterCrumbs {
+  padding: clamp(36px, 4vw, 56px) 0 clamp(64px, 8vw, 104px);
 }
 
 .sectionAlt {

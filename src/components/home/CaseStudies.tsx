@@ -15,7 +15,7 @@ export default function CaseStudies() {
         </Reveal>
       </div>
 
-      <div className={styles.row}>
+      <div className={`wrap ${styles.row}`}>
         {caseStudies.map((item, i) => (
           <Reveal as="div" key={item.title} delay={i * 70} variant="scale" className={styles.cardSlot}>
             <TiltCard max={5}>

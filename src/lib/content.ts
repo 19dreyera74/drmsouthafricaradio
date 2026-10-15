@@ -74,12 +74,12 @@ export const partners: Partner[] = [
   { name: "Radio Kansel 657AM", logo: "/images/partners/radio-kansel.jpg", note: "AM broadcaster" },
   { name: "Cape Pulpit 729AM", logo: "/images/partners/cape-pulpit.jpg", note: "AM broadcaster" },
   { name: "Broadcom International", logo: "/images/partners/broadcom.jpg", note: "Broadcast engineering" },
-  { name: "Kofifi FM 97.2", note: "Community broadcaster" },
-  { name: "Fraunhofer IIS", note: "DRM ContentServer & MultimediaPlayer" },
-  { name: "RFmondial", note: "DRM technology" },
-  { name: "Starwaves", note: "DRM receivers" },
-  { name: "Gospell", note: "DRM receivers" },
-  { name: "DRM Consortium", note: "Global standards body" },
+  { name: "Kofifi FM 97.2", logo: "/images/partners/kofifi-fm.png", note: "Community broadcaster" },
+  { name: "Fraunhofer IIS", logo: "/images/partners/fraunhofer-iis.svg", note: "DRM ContentServer & MultimediaPlayer" },
+  { name: "RFmondial", logo: "/images/partners/rfmondial.png", note: "DRM technology" },
+  { name: "Starwaves", logo: "/images/partners/starwaves.jpg", note: "DRM receivers" },
+  { name: "Gospell", logo: "/images/partners/gospell.png", note: "DRM receivers" },
+  { name: "DRM Consortium", logo: "/images/partners/drm-consortium.png", note: "Global standards body" },
 ];
 
 export const membershipTiers = [
