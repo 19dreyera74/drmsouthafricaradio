@@ -29,6 +29,12 @@
   padding: clamp(36px, 4vw, 56px) 0 clamp(64px, 8vw, 104px);
 }
 
+/* Keep section headings clear of the nav + sticky News switcher when jumped to. */
+.sectionAfterCrumbs,
+.sectionAlt {
+  scroll-margin-top: 150px;
+}
+
 .sectionAlt {
   padding: clamp(64px, 8vw, 104px) 0;
   background: var(--bg-tint);

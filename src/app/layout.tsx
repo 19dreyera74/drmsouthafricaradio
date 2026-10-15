@@ -3,7 +3,6 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
 import { SITE_URL, SITE_NAME, absolute } from "@/lib/site";
 import { siteMeta } from "@/lib/content";
 
@@ -74,7 +73,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Nav />
         {children}
         <Footer />
-        <ChatWidget />
       </body>
     </html>
   );

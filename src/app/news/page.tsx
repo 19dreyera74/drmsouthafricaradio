@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
+import NewsTabs from "@/components/news/NewsTabs";
 import Breadcrumbs from "@/components/news/Breadcrumbs";
 import NewsCard, { NewsGrid } from "@/components/news/NewsCard";
 import { newsArticles } from "@/lib/content";
@@ -36,6 +37,7 @@ export default async function NewsPage() {
       <div className={`wrap ${styles.crumbBar}`}>
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "News" }]} />
       </div>
+      <NewsTabs />
 
       <section className={styles.sectionAfterCrumbs} id="local">
         <div className="wrap">
