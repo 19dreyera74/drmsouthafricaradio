@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import TrustMarquee from "@/components/TrustMarquee";
 import Problem from "@/components/home/Problem";
 import CaseStudies from "@/components/home/CaseStudies";
 import MemberWall from "@/components/home/MemberWall";
@@ -11,7 +10,6 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <TrustMarquee />
       <Problem />
       <CaseStudies />
       <MemberWall />
