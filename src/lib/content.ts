@@ -71,7 +71,6 @@ export const partners: Partner[] = [
   { name: "LM Radio", logo: "/images/partners/lm-radio.jpg", note: "Commercial broadcaster" },
   { name: "BluLemon", logo: "/images/partners/blulemon.jpg", note: "Transmitter & antenna systems" },
   { name: "LSofSA", logo: "/images/partners/lsofsa.png", note: "RF engineering, est. 1999" },
-  { name: "Radio Kansel 657AM", logo: "/images/partners/radio-kansel.jpg", note: "AM broadcaster" },
   { name: "Broadcom International", logo: "/images/partners/broadcom.png", note: "Broadcast engineering" },
   { name: "Fraunhofer IIS", logo: "/images/partners/fraunhofer-iis.svg", note: "DRM ContentServer & MultimediaPlayer" },
   { name: "RFmondial", logo: "/images/partners/rfmondial.png", note: "DRM technology" },
