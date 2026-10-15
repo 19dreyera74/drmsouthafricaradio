@@ -68,16 +68,14 @@ type Partner = { name: string; logo?: string; note: string };
 export const partners: Partner[] = [
   { name: "Radio Pulpit", logo: "/images/partners/radio-pulpit.jpg", note: "DRM AM & FM pioneer" },
   { name: "HOT 102.7FM", logo: "/images/partners/hot1027.png", note: "Commercial broadcaster" },
+  { name: "LM Radio", logo: "/images/partners/lm-radio.jpg", note: "Commercial broadcaster" },
   { name: "BluLemon", logo: "/images/partners/blulemon.jpg", note: "Transmitter & antenna systems" },
   { name: "LSofSA", logo: "/images/partners/lsofsa.png", note: "RF engineering, est. 1999" },
-  { name: "Pulpit Media Group", logo: "/images/partners/pulpit-media-group.jpg", note: "Broadcaster group" },
   { name: "Radio Kansel 657AM", logo: "/images/partners/radio-kansel.jpg", note: "AM broadcaster" },
-  { name: "Cape Pulpit 729AM", logo: "/images/partners/cape-pulpit.jpg", note: "AM broadcaster" },
-  { name: "Broadcom International", logo: "/images/partners/broadcom.jpg", note: "Broadcast engineering" },
+  { name: "Broadcom International", logo: "/images/partners/broadcom.png", note: "Broadcast engineering" },
   { name: "Fraunhofer IIS", logo: "/images/partners/fraunhofer-iis.svg", note: "DRM ContentServer & MultimediaPlayer" },
   { name: "RFmondial", logo: "/images/partners/rfmondial.png", note: "DRM technology" },
   { name: "Starwaves", logo: "/images/partners/starwaves.jpg", note: "DRM receivers" },
-  { name: "Gospell", logo: "/images/partners/gospell.png", note: "DRM receivers" },
   { name: "DRM Consortium", logo: "/images/partners/drm-consortium.png", note: "Global standards body" },
 ];
 
