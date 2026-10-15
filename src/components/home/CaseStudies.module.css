@@ -29,43 +29,27 @@
    the page gutter so no card is ever clipped at the screen edge. */
 .row {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
 .cardSlot {
-  grid-column: span 2;
   display: flex;
-}
-
-.cardSlot:nth-child(4),
-.cardSlot:nth-child(5) {
-  grid-column: span 3;
 }
 
 .cardSlot > * {
   flex: 1;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .cardSlot,
-  .cardSlot:nth-child(4) {
-    grid-column: span 1;
-  }
-  .cardSlot:nth-child(5) {
-    grid-column: span 2;
   }
 }
 
 @media (max-width: 640px) {
   .row {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .cardSlot:nth-child(5) {
-    grid-column: span 1;
   }
 }
 
