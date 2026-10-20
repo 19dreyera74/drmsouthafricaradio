@@ -117,6 +117,8 @@ type NewsArticle = {
   slug: string;
   date: string;
   tag: string;
+  /** Extra category tags; the article also appears under these filters. */
+  tags?: string[];
   title: string;
   excerpt: string;
   body: string[];
@@ -128,6 +130,17 @@ type NewsArticle = {
 export type { NewsArticle };
 
 const articles: NewsArticle[] = [
+  {
+    slug: "blulemon-early-drm-sa-member",
+    date: "2026-07-29",
+    tag: "Membership",
+    tags: ["News", "DRM", "BluLemon"],
+    title: "BluLemon: An Early DRM SA Member Helping Drive the Future of Digital Radio in South Africa",
+    excerpt:
+      "From broadcast infrastructure expertise to enabling South Africa's pioneering DRM in FM trial, BluLemon is playing a practical role in advancing digital radio across the region.",
+    body: [],
+    image: "/images/partners/blulemon.jpg",
+  },
   {
     slug: "mozambique-collaboration",
     date: "2026-04-15",
@@ -252,7 +265,9 @@ const articles: NewsArticle[] = [
 
 export const newsArticles = [...articles].sort((a, b) => b.date.localeCompare(a.date));
 
-export const newsTags = [...new Set(newsArticles.map((a) => a.tag))];
+export const articleTags = (a: NewsArticle) => [...new Set([a.tag, ...(a.tags || [])])];
+
+export const newsTags = [...new Set(newsArticles.flatMap(articleTags))];
 
 export const whatIsDrm = {
   intro:
@@ -302,10 +317,14 @@ export const about = {
 
 // Local News posts, copied from the drmsa.org News page. Inline links use
 // [text](url) and are rendered by RichText.
+// Text supports [label](url) links, **bold** and *italic*.
 export type PostBlock =
   | string
   | { heading: string }
-  | { list: (string | { text: string; items: string[] })[] };
+  | { lead: string }
+  | { list: (string | { text: string; items: string[] })[] }
+  | { figure: string; alt: string; width?: number; height?: number }
+  | { split: PostBlock[]; image: string; alt: string; width: number; height: number; fit?: "contain" };
 
 export type LocalNewsPost = {
   slug: string;
@@ -315,10 +334,82 @@ export type LocalNewsPost = {
   video?: string;
   gallery?: string[];
   galleryTitle?: string;
+  /** Skip the big hero image when the body already places the images. */
+  noHero?: boolean;
+  hashtags?: string[];
   body: PostBlock[];
 };
 
 export const localNews: LocalNewsPost[] = [
+  {
+    slug: "blulemon-early-drm-sa-member",
+    title: "BluLemon: An Early DRM SA Member Helping Drive the Future of Digital Radio in South Africa",
+    noHero: true,
+    hashtags: ["drm", "digitalradio", "distancelearning", "broadcasting", "digitalbroadcasting"],
+    body: [
+      {
+        lead: "From broadcast infrastructure expertise to enabling South Africa's pioneering DRM in FM trial, BluLemon is playing a practical role in advancing digital radio across the region.",
+      },
+      {
+        split: [
+          "As one of the early members of the Digital Radio Mondiale Southern Africa (DRM SA) Group, BluLemon (Pty) Ltd has demonstrated its commitment to advancing digital broadcasting in South Africa. Through its technical expertise, transmission infrastructure and support for industry collaboration, the company has helped turn the vision of digital radio into a real-world demonstration.",
+        ],
+        image: "/images/partners/blulemon.jpg",
+        alt: "BluLemon logo",
+        width: 590,
+        height: 318,
+        fit: "contain",
+      },
+      { heading: "A South African broadcast technology specialist" },
+      "Established in 2005 by Russell Jones, BluLemon is a South African company specialising in broadcast studio design, systems integration, transmission infrastructure and signal distribution. Drawing on decades of experience in broadcasting, the company provides turnkey solutions to community, commercial and public-sector broadcasters.",
+      "Its services include the design and installation of radio and television studios, transmitter stations, microwave and fibre links, frequency planning, propagation analysis, project management and technical support. BluLemon also works with international and local equipment suppliers to deliver tailored broadcast solutions.",
+      { figure: "/images/news/blulemon-broadcast-control-room.jpg", alt: "Broadcast studio control room with multiviewer screens, vision and lighting desks", width: 490, height: 229 },
+      "As an ICASA-licensed signal distributor, BluLemon has experience with both conventional broadcasting technologies and digital standards, including Digital Radio Mondiale (DRM) and DVB-T2. Its work extends beyond South Africa into other African markets, supporting broadcasters with the infrastructure and expertise required to deliver reliable services.",
+      "This combination of local knowledge, engineering capability and digital broadcasting experience makes BluLemon a valuable contributor to the DRM SA Group's efforts to advance digital radio adoption across Southern Africa.",
+      "*Company profile: [www.blulemon.net](https://blulemon.net/Default.asp)*",
+      { heading: "Enabling South Africa's DRM in FM trial" },
+      {
+        split: [
+          "One of BluLemon's most significant contributions to the DRM SA Group has been its support for the pioneering DRM in FM trial, which commenced on **13 February 2026**, coinciding with UNESCO World Radio Day.",
+          "The trial demonstrates how Digital Radio Mondiale can bring digital broadcasting capabilities to the existing FM band. Operating on **91.25 MHz from a high-site in Northcliff, Johannesburg, at 70 watts transmitter output power**, the demonstration showcases the ability to carry multiple radio services on a single FM frequency.",
+          "BluLemon has played a crucial enabling role in this initiative by hosting the transmitter installation and making its licensing arrangements available to support the trial. Its contribution has helped provide the infrastructure and regulatory foundation needed to demonstrate DRM technology in a live South African broadcasting environment.",
+        ],
+        image: "/images/news/blulemon-drm-transmitter-rack.jpg",
+        alt: "DRM in FM transmission rack with RFmondial DRM equipment and Nautel transmitter",
+        width: 1000,
+        height: 1279,
+      },
+      { heading: "Key contributions and achievements" },
+      {
+        list: [
+          "**Early support for DRM SA:** As one of the group's early members, BluLemon has contributed to the collective effort to promote digital radio and build awareness of DRM technology in South Africa.",
+          "**Hosting the transmitter:** BluLemon hosts the transmitter installation at the Northcliff site, providing a critical part of the infrastructure required for the DRM in FM demonstration.",
+          "**Licensing support:** BluLemon's licence and regulatory standing have helped facilitate the trial, which operates under the relevant ICASA test authorisation.",
+          "**Making digital radio a reality:** Its infrastructure support has helped move DRM in FM from technical planning to an operational, on-air demonstration.",
+          "**Supporting industry collaboration:** The trial brings together broadcasters, engineering specialists, technology providers and international partners to explore the practical application of digital radio in South Africa.",
+        ],
+      },
+      { heading: "Demonstrating the possibilities of digital FM" },
+      "The DRM in FM trial is about more than digital audio. It provides a platform to demonstrate how radio can evolve into a richer, more efficient and more versatile communications medium.",
+      "The demonstration showcases several important capabilities:",
+      {
+        list: [
+          "**Multiple radio services:** Delivering more than one radio programme on a single FM frequency.",
+          "**Emergency Warning Functionality (EWF):** Demonstrating the potential for radio to support public warning and emergency communication.",
+          "**Journaline information services:** Providing text-based information and educational content alongside audio, including applications for distance learning.",
+          "**Energy efficiency:** Exploring the potential for digital transmission to reduce energy consumption compared with conventional analogue broadcasting.",
+        ],
+      },
+      "These capabilities could open new opportunities for commercial and community broadcasters while strengthening radio's role in education, public information and emergency preparedness.",
+      { heading: "Building a digital radio future together" },
+      "The DRM in FM trial reflects the value of collaboration between local industry expertise and international technology partners. Supported by the DRM Consortium and partners including Fraunhofer IIS, RFmondial and STARWAVES, the initiative is helping build practical knowledge about the implementation and potential of DRM in the FM band.",
+      "BluLemon's contribution illustrates how local engineering companies and signal distributors can play an important role in enabling broadcasting innovation. By providing a transmission site, technical infrastructure and licensing support, the company has helped establish a working platform on which broadcasters and other stakeholders can evaluate the technology.",
+      "As the DRM SA Group continues to engage broadcasters, regulators, receiver manufacturers and other industry stakeholders, the experience gained through the trial will help inform future digital radio planning and implementation across South Africa and the wider region.",
+      "**The DRM SA Group recognises BluLemon's contribution and commitment to advancing digital broadcasting.** Its involvement is a practical example of how industry collaboration can help turn the promise of digital radio into a working reality.",
+      "Learn more about the DRM SA Group and its initiatives at [www.drmsa.org](https://www.drmsa.org/).",
+      "Learn more about BluLemon at [www.blulemon.net](https://blulemon.net/Default.asp).",
+    ],
+  },
   {
     slug: "mozambique-collaboration",
     title: "Strengthening regional collaboration in digital broadcasting",

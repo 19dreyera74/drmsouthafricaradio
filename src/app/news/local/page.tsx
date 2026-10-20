@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs, { type Crumb } from "@/components/news/Breadcrumbs";
 import NewsCard, { NewsGrid } from "@/components/news/NewsCard";
-import { newsArticles, newsTags } from "@/lib/content";
+import { articleTags, newsArticles, newsTags } from "@/lib/content";
 import styles from "../page.module.css";
 
 type Props = { searchParams: Promise<{ tag?: string }> };
@@ -21,7 +21,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 export default async function LocalNewsPage({ searchParams }: Props) {
   const { tag } = await searchParams;
   const active = newsTags.find((t) => t === tag);
-  const items = active ? newsArticles.filter((a) => a.tag === active) : newsArticles;
+  const items = active ? newsArticles.filter((a) => articleTags(a).includes(active)) : newsArticles;
 
   const crumbs: Crumb[] = [
     { label: "Home", href: "/" },

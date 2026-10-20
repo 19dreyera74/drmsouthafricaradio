@@ -150,6 +150,22 @@
 .articleTag {
   color: var(--navy);
   font-weight: 600;
+  text-decoration: none;
+}
+
+a.articleTag:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 28px;
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .articleHero {

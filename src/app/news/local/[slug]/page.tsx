@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/news/Breadcrumbs";
 import NewsCard, { NewsGrid, formatDate } from "@/components/news/NewsCard";
 import PostBody from "@/components/news/PostBody";
-import { localNews, newsArticles } from "@/lib/content";
+import { articleTags, localNews, newsArticles } from "@/lib/content";
 import { SITE_NAME, absolute } from "@/lib/site";
 import styles from "../../page.module.css";
 
@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       publishedTime: a.date,
       section: a.tag,
+      tags: articleTags(a),
       images: a.image ? [a.image] : ["/images/hero-radios.jpg"],
     },
     twitter: { card: "summary_large_image", title: a.title, description: a.excerpt },
@@ -47,6 +48,8 @@ export default async function LocalArticle({ params }: Props) {
   const post = localNews.find((x) => x.slug === a.slug);
   const related = newsArticles.filter((x) => x.slug !== a.slug).slice(0, 3);
   const heroImage = post?.image || a.image;
+  const showHero = Boolean(heroImage) && !post?.noHero;
+  const tags = articleTags(a);
   const isLogo = post?.imageFit === "contain" || (heroImage ? /member-|partners\//.test(heroImage) : false);
   const video = post?.video || a.video;
   const gallery = post?.gallery || a.gallery;
@@ -59,6 +62,7 @@ export default async function LocalArticle({ params }: Props) {
     datePublished: a.date,
     dateModified: a.date,
     articleSection: a.tag,
+    keywords: [...articleTags(a), ...(localNews.find((x) => x.slug === a.slug)?.hashtags || [])].join(", "),
     image: [absolute(heroImage || "/images/hero-radios.jpg")],
     mainEntityOfPage: absolute(`/news/local/${a.slug}`),
     author: { "@type": "Organization", name: SITE_NAME, url: absolute("/") },
@@ -81,7 +85,11 @@ export default async function LocalArticle({ params }: Props) {
           />
           <h1 className={styles.title}>{a.title}</h1>
           <div className={styles.articleMeta}>
-            <span className={styles.articleTag}>{a.tag}</span>
+            {tags.map((t) => (
+              <Link key={t} href={`/news/local?tag=${encodeURIComponent(t)}`} className={styles.articleTag}>
+                {t}
+              </Link>
+            ))}
             <time dateTime={a.date}>{formatDate(a.date)}</time>
             <span>DRM SA Group</span>
           </div>
@@ -90,7 +98,7 @@ export default async function LocalArticle({ params }: Props) {
 
       <section className={styles.section}>
         <div className={`wrap ${styles.article}`}>
-          {heroImage && (
+          {showHero && heroImage && (
             <div className={styles.articleHero}>
               <Image src={heroImage} alt={a.title} fill priority sizes="(max-width: 860px) 100vw, 820px" className={isLogo ? styles.articleHeroContain : styles.img} />
             </div>
@@ -103,6 +111,13 @@ export default async function LocalArticle({ params }: Props) {
                 <p key={i}>{p}</p>
               ))}
             </div>
+          )}
+          {post?.hashtags && (
+            <p className={styles.hashtags}>
+              {post.hashtags.map((h) => (
+                <span key={h}>#{h}</span>
+              ))}
+            </p>
           )}
           {gallery && (
             <>
