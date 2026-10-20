@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { sendMail, smtpConfigFromEnv } from "@/lib/smtp";
 
 export const runtime = "nodejs";
 
@@ -37,6 +38,30 @@ export async function POST(req: NextRequest) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL || "info@drmsa.org";
+  const subject = `New contact form message from ${name}`;
+  const text = `Name: ${name}\nEmail: ${email}\nPhone: ${body.phone || "-"}\n\n${message}`;
+  const failed = NextResponse.json(
+    { ok: false, error: "Something went wrong sending your message. Please try again or email us directly." },
+    { status: 200 }
+  );
+
+  // Preferred: send through the drmsa.org mailbox (Afrihost SMTP).
+  const smtp = smtpConfigFromEnv();
+  if (smtp) {
+    try {
+      await sendMail(smtp, {
+        from: `DRM SA Website <${smtp.user}>`,
+        to,
+        replyTo: `${name.replace(/[<>"]/g, "")} <${email}>`,
+        subject,
+        text,
+      });
+      return NextResponse.json({ ok: true });
+    } catch (err) {
+      console.error("SMTP error", err);
+      return failed;
+    }
+  }
 
   if (!apiKey) {
     return NextResponse.json(
@@ -60,8 +85,8 @@ export async function POST(req: NextRequest) {
         from: process.env.CONTACT_FROM_EMAIL || "DRM SA Website <onboarding@resend.dev>",
         to: [to],
         reply_to: email,
-        subject: `New contact form message from ${name}`,
-        text: `Name: ${name}\nEmail: ${email}\nPhone: ${body.phone || "-"}\n\n${message}`,
+        subject,
+        text,
       }),
     });
 
