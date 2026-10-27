@@ -131,6 +131,17 @@ export type { NewsArticle };
 
 const articles: NewsArticle[] = [
   {
+    slug: "redesigned-website-launch",
+    date: "2026-10-27",
+    tag: "News",
+    tags: ["DRM"],
+    title: "DRM SA Group Launches Redesigned Website to Advance Digital Radio in Southern Africa",
+    excerpt:
+      "The DRM SA Group has launched its redesigned website, a refreshed platform to promote Digital Radio Mondiale technology and support the growth of digital radio across Southern Africa.",
+    body: [],
+    image: "/images/news/redesigned-website-launch.jpg",
+  },
+  {
     slug: "blulemon-early-drm-sa-member",
     date: "2026-07-29",
     tag: "Membership",
@@ -341,6 +352,20 @@ export type LocalNewsPost = {
 };
 
 export const localNews: LocalNewsPost[] = [
+  {
+    slug: "redesigned-website-launch",
+    title: "DRM SA Group Launches Redesigned Website to Advance Digital Radio in Southern Africa",
+    image: "/images/news/redesigned-website-launch.jpg",
+    hashtags: ["drm", "digitalradio", "digitalsoundbroadcasting"],
+    body: [
+      "The DRM Southern Africa (DRM SA) Group is pleased to announce the launch of its redesigned website, providing a refreshed digital platform to promote Digital Radio Mondiale (DRM) technology and support the growth of digital radio across Southern Africa.",
+      "Launched last week, the new website offers broadcasters, industry stakeholders, technology partners and the public a credible source of information about DRM, its capabilities, and the opportunities it presents for the future of radio broadcasting.",
+      "Visitors can learn more about the DRM standard, explore its benefits for broadcasters and listeners, keep up to date with the latest industry news and developments, and discover how to become involved in the DRM SA Group.",
+      "The launch comes at an exciting time for digital radio in South Africa. The group’s recent DRM FM demonstration, launched on World Radio Day in February 2026, showcased the potential of digital broadcasting, including multiple radio services on a single frequency, improved spectrum and energy efficiency, distance learning content delivery, and Emergency Warning Functionality.",
+      "The redesigned website forms part of the group’s broader commitment to raising awareness, strengthening industry collaboration, and encouraging the adoption of DRM technology as South Africa and the wider region explore the adoption of digital sound broadcasting.",
+      "**Explore the new website at [www.drmsa.org](https://www.drmsa.org/)** and follow the DRM SA Group’s journey as we work together to shape the future of radio in Southern Africa.",
+    ],
+  },
   {
     slug: "blulemon-early-drm-sa-member",
     title: "BluLemon: An Early DRM SA Member Helping Drive the Future of Digital Radio in South Africa",
