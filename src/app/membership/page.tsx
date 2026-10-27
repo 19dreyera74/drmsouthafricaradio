@@ -37,7 +37,7 @@ export default function MembershipPage() {
         video="/videos/membership-journey.mp4"
       />
 
-      <section className={`${styles.section} wrap`}>
+      <section className={`${styles.section} ${styles.tiersSection} wrap`}>
         <div className={styles.grid}>
           {membershipTiers.map((t, i) => (
             <Reveal key={t.tier} delay={i * 80} variant="scale">
@@ -66,6 +66,7 @@ export default function MembershipPage() {
         title="Part of a global network"
         body="DRM SA works alongside the wider DRM Consortium, meeting broadcasters, regulators and receiver manufacturers at industry events around the world. Members join that network, not just a local group."
         caption="The DRM team at the BES Expo, 2023."
+        className={styles.afterTiers}
       />
 
       <section className={`${styles.sectionAlt} wrap`}>

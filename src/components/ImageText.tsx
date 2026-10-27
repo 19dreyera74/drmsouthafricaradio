@@ -9,11 +9,12 @@ type ImageTextProps = {
   caption?: string;
   reverse?: boolean;
   alt?: string;
+  className?: string;
 };
 
-export default function ImageText({ title, body, image, caption, reverse, alt = "" }: ImageTextProps) {
+export default function ImageText({ title, body, image, caption, reverse, alt = "", className = "" }: ImageTextProps) {
   return (
-    <section className={`${styles.section} wrap ${reverse ? styles.reverse : ""}`}>
+    <section className={`${styles.section} wrap ${reverse ? styles.reverse : ""} ${className}`}>
       <div className={styles.grid}>
         <Reveal variant="scale">
           <div className={styles.imgWrap}>
