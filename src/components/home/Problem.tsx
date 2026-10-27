@@ -14,7 +14,7 @@ const drm = [
   "Multiple channels broadcast on a single frequency",
   "Emergency Warning Functionality (EWF) for public safety",
   "Journaline data services — text, images and distance learning alongside audio",
-  "Lower energy consumption than analogue FM",
+  "Lower energy consumption than analogue sound broadcasting",
 ];
 
 export default function Problem() {
