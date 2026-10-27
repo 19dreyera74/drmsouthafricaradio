@@ -1,6 +1,6 @@
 .footer {
   border-top: 1px solid var(--line);
-  padding: clamp(72px, 9vw, 116px) var(--gutter) 48px;
+  padding: clamp(56px, 6.5vw, 84px) var(--gutter) 40px;
   background: var(--bg-tint);
 }
 

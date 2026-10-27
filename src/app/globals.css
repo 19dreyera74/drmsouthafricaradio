@@ -32,7 +32,7 @@
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 
   --gutter: clamp(20px, 5vw, 72px);
-  --section-pad: clamp(96px, 12vw, 176px);
+  --section-pad: clamp(64px, 7.5vw, 112px);
 
   /* Type scale from drmsa.org */
   --h1: 54px;

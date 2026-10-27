@@ -18,7 +18,7 @@
 }
 
 .section {
-  padding: clamp(64px, 8vw, 104px) 0;
+  padding: clamp(48px, 6vw, 76px) 0;
 }
 
 .crumbBar {
@@ -26,7 +26,7 @@
 }
 
 .sectionAfterCrumbs {
-  padding: clamp(36px, 4vw, 56px) 0 clamp(64px, 8vw, 104px);
+  padding: clamp(28px, 3vw, 44px) 0 clamp(48px, 6vw, 76px);
 }
 
 /* Keep section headings clear of the nav + sticky News switcher when jumped to. */
@@ -36,7 +36,7 @@
 }
 
 .sectionAlt {
-  padding: clamp(64px, 8vw, 104px) 0;
+  padding: clamp(48px, 6vw, 76px) 0;
   background: var(--bg-tint);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
