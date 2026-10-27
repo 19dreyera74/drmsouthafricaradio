@@ -20,6 +20,13 @@ const steps = [
   { title: "Activate", body: "DRM SA reviews your application and emails an invoice. Membership is active once payment is received." },
 ];
 
+const consortiumFit = [
+  "Receiver and equipment manufacturers",
+  "Motor vehicle manufacturers",
+  "System integrators",
+  "Signal distributors",
+];
+
 export default function MembershipPage() {
   return (
     <main>
@@ -88,6 +95,38 @@ export default function MembershipPage() {
             Download application form
           </a>
           <span className={styles.downloadNote}>PDF · DRM SA Group Membership Application</span>
+        </Reveal>
+      </section>
+
+      <section className={`${styles.section} wrap`} aria-labelledby="consortium-title">
+        <Reveal as="div" className={styles.consortium}>
+          <div className={styles.consortiumText}>
+            <span className={styles.eyebrow}>Going global?</span>
+            <h2 id="consortium-title" className={styles.title}>
+              Join the DRM Consortium
+            </h2>
+            <p className={styles.sub}>
+              If your organisation is a local receiver or equipment manufacturer, a motor vehicle manufacturer, a system
+              integrator or a signal distributor that wants to offer its products and services globally, joining the DRM
+              Consortium can be an option. The Consortium is the international body behind the Digital Radio Mondiale
+              standard, connecting members with broadcasters, manufacturers and regulators around the world.
+            </p>
+            <a href="https://www.drm.org/membership/" target="_blank" rel="noreferrer" className={styles.downloadBtn}>
+              Explore DRM Consortium membership
+            </a>
+            <p className={styles.consortiumNote}>
+              DRM Consortium membership is separate from DRM SA Group membership and is arranged directly with the
+              Consortium.
+            </p>
+          </div>
+          <div className={styles.consortiumPanel}>
+            <span className={styles.eligHeading}>A good fit for</span>
+            <ul className={styles.eligList}>
+              {consortiumFit.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </Reveal>
       </section>
     </main>
