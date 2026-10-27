@@ -106,6 +106,11 @@ export default function WhatIsDrmPage() {
                 </Reveal>
               ))}
             </div>
+            <Reveal delay={200} className={styles.learnMoreRow}>
+              <a href="https://www.drm.org/about-drm/" target="_blank" rel="noreferrer" className={styles.learnMore}>
+                Learn more about the standard
+              </a>
+            </Reveal>
           </div>
         </div>
       </section>
