@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import PageHero from "@/components/PageHero";
 import NewsTabs from "@/components/news/NewsTabs";
 import Breadcrumbs from "@/components/news/Breadcrumbs";
+import NewsletterCta from "@/components/news/NewsletterCta";
 import NewsCard, { NewsGrid } from "@/components/news/NewsCard";
 import { newsArticles } from "@/lib/content";
 import { getGlobalNews } from "@/lib/global-news";
@@ -37,6 +38,7 @@ export default async function NewsPage() {
       <div className={`wrap ${styles.crumbBar}`}>
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "News" }]} />
       </div>
+      <NewsletterCta />
       <NewsTabs />
 
       <section className={styles.sectionAfterCrumbs} id="local">
