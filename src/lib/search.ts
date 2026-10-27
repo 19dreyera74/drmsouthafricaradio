@@ -25,8 +25,9 @@ const plain = (s: string) =>
   s.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\*\*([^*]+)\*\*/g, "$1").replace(/\*([^*]+)\*/g, "$1");
 
 // Every string inside a value (objects, arrays, post blocks), joined.
+// Bare links and file paths (videos, images) are skipped.
 function words(value: unknown): string {
-  if (typeof value === "string") return plain(value);
+  if (typeof value === "string") return /^(https?:\/\/|\/)\S*$/.test(value.trim()) ? "" : plain(value);
   if (Array.isArray(value)) return value.map(words).join(" ");
   if (value && typeof value === "object") return Object.values(value).map(words).join(" ");
   return "";
