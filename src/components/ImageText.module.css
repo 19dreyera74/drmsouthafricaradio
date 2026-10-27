@@ -61,3 +61,23 @@
     direction: ltr;
   }
 }
+
+.button {
+  display: inline-block;
+  margin-top: 24px;
+  background: var(--accent);
+  color: var(--accent-text);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  transition: transform 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgba(137, 193, 255, 0.7);
+  }
+}

@@ -10,9 +10,11 @@ type ImageTextProps = {
   reverse?: boolean;
   alt?: string;
   className?: string;
+  /** Optional button under the text, e.g. a link to more on drm.org. */
+  link?: { href: string; label: string };
 };
 
-export default function ImageText({ title, body, image, caption, reverse, alt = "", className = "" }: ImageTextProps) {
+export default function ImageText({ title, body, image, caption, reverse, alt = "", className = "", link }: ImageTextProps) {
   return (
     <section className={`${styles.section} wrap ${reverse ? styles.reverse : ""} ${className}`}>
       <div className={styles.grid}>
@@ -26,6 +28,11 @@ export default function ImageText({ title, body, image, caption, reverse, alt = 
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.body}>{body}</p>
             {caption && <p className={styles.caption}>{caption}</p>}
+            {link && (
+              <a href={link.href} target="_blank" rel="noreferrer" className={styles.button}>
+                {link.label}
+              </a>
+            )}
           </div>
         </Reveal>
       </div>
