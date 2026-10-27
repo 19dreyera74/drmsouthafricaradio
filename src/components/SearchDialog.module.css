@@ -1,0 +1,124 @@
+.dialog {
+  margin: 12vh auto auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  width: min(680px, calc(100vw - 32px));
+  max-width: none;
+  max-height: 76vh;
+  overflow: visible;
+}
+
+.dialog::backdrop {
+  background: rgba(10, 17, 34, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.panel {
+  background: var(--surface);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px -24px rgba(10, 17, 34, 0.45);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 76vh;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.inputIcon {
+  color: var(--navy);
+  flex: none;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: 1.1rem;
+  color: var(--text);
+  padding: 6px 0;
+}
+
+.input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--text-muted);
+  flex: none;
+}
+
+.close:hover {
+  background: var(--bg-tint);
+  color: var(--navy);
+}
+
+.results {
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.results ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hint {
+  padding: 18px 14px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.resultActive {
+  background: var(--bg-tint);
+}
+
+.kind {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.title {
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.snippet {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

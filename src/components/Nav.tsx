@@ -5,12 +5,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./Nav.module.css";
+import SearchDialog, { SearchIcon } from "./SearchDialog";
 import { nav } from "@/lib/content";
 
 export default function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -21,7 +23,22 @@ export default function Nav() {
 
   useEffect(() => {
     setOpen(false);
+    setSearchOpen(false);
   }, [pathname]);
+
+  // Ctrl+K / Cmd+K or "/" opens search (not while typing in a field).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const typing = e.target instanceof HTMLElement && e.target.closest("input, textarea, select, [contenteditable]");
+      if ((e.key === "k" && (e.ctrlKey || e.metaKey)) || (e.key === "/" && !typing)) {
+        e.preventDefault();
+        setOpen(false);
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <>
@@ -42,18 +59,32 @@ export default function Nav() {
           ))}
         </nav>
 
-        <Link href="/contact" className={styles.cta}>
-          Contact
-        </Link>
+        <div className={styles.actions}>
+          <button
+            type="button"
+            className={styles.searchBtn}
+            aria-label="Search the site"
+            onClick={() => {
+              setOpen(false);
+              setSearchOpen(true);
+            }}
+          >
+            <SearchIcon />
+          </button>
 
-        <button
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          className={`${styles.menuBtn} ${open ? styles.menuOpen : ""}`}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span />
-        </button>
+          <Link href="/contact" className={styles.cta}>
+            Contact
+          </Link>
+
+          <button
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            className={`${styles.menuBtn} ${open ? styles.menuOpen : ""}`}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span />
+          </button>
+        </div>
       </header>
 
       <div className={`${styles.mobilePanel} ${open ? styles.mobilePanelOpen : ""}`}>
@@ -66,6 +97,8 @@ export default function Nav() {
           Contact
         </Link>
       </div>
+
+      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }
