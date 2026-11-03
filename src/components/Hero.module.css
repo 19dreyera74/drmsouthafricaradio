@@ -196,6 +196,13 @@
   50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
 }
 
+/* On shorter screens the scroll hint would sit on top of the buttons. */
+@media (max-height: 860px) {
+  .scrollCue {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
     padding-top: 104px;
