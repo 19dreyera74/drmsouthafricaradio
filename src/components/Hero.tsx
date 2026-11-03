@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Hero.module.css";
 import { STATIC_QUERIES } from "@/lib/media";
 
@@ -77,6 +78,18 @@ export default function Hero() {
       <div className={styles.scrim} />
 
       <div className={styles.content}>
+        <div className={`${styles.drmBadge} ${styles.entrance}`}>
+          <Image
+            src="/images/drm-consortium/drm-logo-white.webp"
+            alt="DRM – Digital Radio Mondiale"
+            width={768}
+            height={576}
+            priority
+            className={styles.drmBadgeLogo}
+          />
+          <span className={styles.drmBadgeTagline}>Digital Radio Mondiale</span>
+          <span className={styles.drmBadgeRule} aria-hidden="true" />
+        </div>
         <h1 className={`${styles.headline} ${styles.entrance}`}>
           The Static Is Over <em>&mdash; Digital Radio Has Arrived</em>
         </h1>

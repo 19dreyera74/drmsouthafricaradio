@@ -8,14 +8,22 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.grid}>
         <div>
-          <div className={styles.brand}>
-            <Image src="/images/logo-transparent.png" alt="DRM SA Group" width={352} height={139} className={styles.logoImg} />
-          </div>
+          <a href="https://www.drm.org/" target="_blank" rel="noreferrer" className={styles.brand}>
+            <Image
+              src="/images/drm-consortium/drm-logo-subtitle.webp"
+              alt="DRM – Digital Radio Mondiale"
+              width={1024}
+              height={282}
+              className={styles.drmLogo}
+            />
+          </a>
           <p className={styles.desc}>
-            The regional home of Digital Radio Mondiale — the ITU-recommended, ETSI-published
-            open standard bringing crystal-clear, future-ready digital sound to Southern
-            Africa&apos;s broadcasters.
+            DRM SA Group promotes <strong>Digital Radio Mondiale</strong>, the ITU-recommended, ETSI-published open
+            standard for digital radio.
           </p>
+          <a href="https://www.drm.org/" target="_blank" rel="noreferrer" className={styles.drmLink}>
+            Visit drm.org →
+          </a>
         </div>
 
         <div>
@@ -48,6 +56,10 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+
+        <Link href="/" className={styles.saBrand} aria-label="DRM SA Group home">
+          <Image src="/images/logo-transparent.png" alt="DRM SA Group" width={352} height={139} className={styles.logoImg} />
+        </Link>
       </div>
 
       <div className={styles.bottom}>

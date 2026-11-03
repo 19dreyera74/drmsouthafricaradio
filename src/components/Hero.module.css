@@ -50,6 +50,35 @@
   align-items: center;
 }
 
+.drmBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.drmBadgeLogo {
+  height: clamp(68px, 7vw, 96px);
+  width: auto;
+}
+
+.drmBadgeTagline {
+  margin-top: 10px;
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--hero-text);
+}
+
+.drmBadgeRule {
+  width: 56px;
+  height: 2px;
+  margin-top: 18px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
 .entrance {
   opacity: 0;
   transform: translateY(16px);
