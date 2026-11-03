@@ -8,22 +8,14 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.grid}>
         <div>
-          <a href="https://www.drm.org/" target="_blank" rel="noreferrer" className={styles.brand}>
-            <Image
-              src="/images/drm-consortium/drm-logo-subtitle.webp"
-              alt="DRM – Digital Radio Mondiale"
-              width={1024}
-              height={282}
-              className={styles.drmLogo}
-            />
-          </a>
+          <div className={styles.brand}>
+            <Image src="/images/logo-transparent.png" alt="DRM SA Group" width={352} height={139} className={styles.logoImg} />
+          </div>
           <p className={styles.desc}>
-            DRM SA Group promotes <strong>Digital Radio Mondiale</strong>, the ITU-recommended, ETSI-published open
-            standard for digital radio.
+            The regional home of Digital Radio Mondiale — the ITU-recommended, ETSI-published
+            open standard bringing crystal-clear, future-ready digital sound to Southern
+            Africa&apos;s broadcasters.
           </p>
-          <a href="https://www.drm.org/" target="_blank" rel="noreferrer" className={styles.drmLink}>
-            Visit drm.org →
-          </a>
         </div>
 
         <div>
@@ -57,9 +49,21 @@ export default function Footer() {
           </ul>
         </div>
 
-        <Link href="/" className={styles.saBrand} aria-label="DRM SA Group home">
-          <Image src="/images/logo-transparent.png" alt="DRM SA Group" width={352} height={139} className={styles.logoImg} />
-        </Link>
+        {/* The DRM standard, as the DRM Consortium asked us to show it. */}
+        <div className={styles.drm}>
+          <a href="https://www.drm.org/" target="_blank" rel="noreferrer" aria-label="DRM Consortium – drm.org">
+            <Image
+              src="/images/drm-consortium/drm-logo-subtitle.webp"
+              alt="DRM – Digital Radio Mondiale"
+              width={1024}
+              height={282}
+              className={styles.drmLogo}
+            />
+          </a>
+          <a href="https://www.drm.org/" target="_blank" rel="noreferrer" className={styles.drmLink}>
+            Visit drm.org →
+          </a>
+        </div>
       </div>
 
       <div className={styles.bottom}>

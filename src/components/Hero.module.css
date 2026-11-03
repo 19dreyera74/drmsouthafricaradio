@@ -1,6 +1,8 @@
 .hero {
   position: relative;
   min-height: 100svh;
+  /* Keep content clear of the fixed menu bar (113px, 80px on phones). */
+  padding: 136px 0 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,6 +197,10 @@
 }
 
 @media (max-width: 640px) {
+  .hero {
+    padding-top: 104px;
+    padding-bottom: 40px;
+  }
   .scrollCue {
     display: none;
   }
