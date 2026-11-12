@@ -75,7 +75,6 @@ export const partners: Partner[] = [
   { name: "Fraunhofer IIS", logo: "/images/partners/fraunhofer-iis.svg", note: "DRM ContentServer & MultimediaPlayer" },
   { name: "RFmondial", logo: "/images/partners/rfmondial.png", note: "DRM technology" },
   { name: "Starwaves", logo: "/images/partners/starwaves.jpg", note: "DRM receivers" },
-  { name: "DRM Consortium", logo: "/images/partners/drm-consortium.png", note: "Global standards body" },
 ];
 
 export const membershipTiers = [
