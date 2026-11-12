@@ -64,7 +64,7 @@
 .allRow {
   margin-top: 36px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .allLink {
