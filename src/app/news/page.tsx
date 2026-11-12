@@ -38,7 +38,6 @@ export default async function NewsPage() {
       <div className={`wrap ${styles.crumbBar}`}>
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "News" }]} />
       </div>
-      <NewsletterCta />
       <NewsTabs />
 
       <section className={styles.sectionAfterCrumbs} id="local">
@@ -57,6 +56,8 @@ export default async function NewsPage() {
           </NewsGrid>
         </div>
       </section>
+
+      <NewsletterCta />
 
       <section className={styles.sectionAlt} id="global">
         <div className="wrap">

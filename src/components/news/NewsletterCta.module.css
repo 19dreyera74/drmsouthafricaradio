@@ -1,6 +1,7 @@
+/* Sits between the Local News and Global News sections. */
 .wrap {
-  padding-top: 20px;
-  padding-bottom: 8px;
+  padding-top: 0;
+  padding-bottom: clamp(48px, 6vw, 76px);
 }
 
 .card {
