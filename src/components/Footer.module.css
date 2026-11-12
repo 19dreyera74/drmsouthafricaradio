@@ -24,8 +24,10 @@
 }
 
 .drmLogo {
-  width: min(300px, 100%);
-  height: auto;
+  /* Same height as the DRM SA logo on the left. */
+  height: 72px;
+  width: auto;
+  max-width: 100%;
 }
 
 .drmLink {
