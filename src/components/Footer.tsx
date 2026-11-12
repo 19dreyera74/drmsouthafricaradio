@@ -67,8 +67,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <span>© {new Date().getFullYear()} DRM SA Group NPC Reg No: 2022/888959/08. All rights reserved.</span>
-        <span>Member of the global DRM Consortium network.</span>
+        <span>© {new Date().getFullYear()} DRM SA Group NPC Reg No: 2022/888959/08. All rights reserved. Member of the global DRM Consortium network.</span>
       </div>
     </footer>
   );
