@@ -47,13 +47,15 @@ export default async function NewsPage() {
               <h2 className={styles.sectionTitle}>Local News</h2>
               <p className={styles.sectionSub}>Demonstrations, partnerships and regulatory milestones from DRM SA.</p>
             </div>
-            <Link href="/news/local" className={styles.allLink}>All local news →</Link>
           </div>
           <NewsGrid>
             {local.map((a) => (
               <NewsCard key={a.slug} href={`/news/local/${a.slug}`} title={a.title} date={a.date} tag={a.tag} excerpt={a.excerpt} image={a.image} />
             ))}
           </NewsGrid>
+          <div className={styles.allRow}>
+            <Link href="/news/local" className={styles.allLink}>All local news →</Link>
+          </div>
         </div>
       </section>
 
@@ -66,7 +68,6 @@ export default async function NewsPage() {
               <h2 className={styles.sectionTitle}>Global News</h2>
               <p className={styles.sectionSub}>The latest from the DRM Consortium, updated automatically from drm.org.</p>
             </div>
-            <Link href="/news/global" className={styles.allLink}>All global news →</Link>
           </div>
           {global.length ? (
             <NewsGrid>
@@ -77,6 +78,9 @@ export default async function NewsPage() {
           ) : (
             <p className={styles.empty}>Global news is temporarily unavailable. Visit drm.org for the latest.</p>
           )}
+          <div className={styles.allRow}>
+            <Link href="/news/global" className={styles.allLink}>All global news →</Link>
+          </div>
         </div>
       </section>
 

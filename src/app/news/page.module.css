@@ -61,14 +61,25 @@
   max-width: 56ch;
 }
 
+.allRow {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+
 .allLink {
   color: var(--navy);
-  font-weight: 500;
+  font-weight: 700;
   white-space: nowrap;
+  padding: 12px 28px;
+  border: 1.5px solid var(--navy);
+  border-radius: 8px;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out);
 }
 
 .allLink:hover {
-  text-decoration: underline;
+  background: var(--navy);
+  color: #fff;
 }
 
 .empty {
