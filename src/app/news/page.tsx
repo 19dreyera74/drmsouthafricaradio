@@ -59,8 +59,6 @@ export default async function NewsPage() {
         </div>
       </section>
 
-      <NewsletterCta />
-
       <section className={styles.sectionAlt} id="global">
         <div className="wrap">
           <div className={styles.sectionHead}>
@@ -83,6 +81,8 @@ export default async function NewsPage() {
           </div>
         </div>
       </section>
+
+      <NewsletterCta />
 
       <section className={styles.section}>
         <div className="wrap">
