@@ -30,7 +30,7 @@ export default async function NewsPage() {
   return (
     <main>
       <PageHero
-        title="DRM news, local and global"
+        title="DRM NEWS: Local and Global"
         sub="What DRM SA is doing in South Africa, and what is happening with Digital Radio Mondiale around the world."
         image="/images/ibc-booth.jpg"
       />
