@@ -130,6 +130,17 @@ export type { NewsArticle };
 
 const articles: NewsArticle[] = [
   {
+    slug: "africa-tech-festival-2026",
+    date: "2026-11-23",
+    tag: "Events",
+    tags: ["Demonstrations", "Sentech"],
+    title: "Sentech and DRM SA Showcase the Future of Digital Radio at Africa Tech Festival 2026",
+    excerpt:
+      "Hosted on Sentech’s stand, the DRM SA Group showcased Digital Radio Mondiale technology, e-learning and DRM receivers at the Africa Tech Festival 2026 in Cape Town.",
+    body: [],
+    image: "/images/news/africa-tech-festival-group.jpg",
+  },
+  {
     slug: "redesigned-website-launch",
     date: "2026-10-27",
     tag: "News",
@@ -333,7 +344,7 @@ export type PostBlock =
   | { heading: string }
   | { lead: string }
   | { list: (string | { text: string; items: string[] })[] }
-  | { figure: string; alt: string; width?: number; height?: number }
+  | { figure: string; alt: string; width?: number; height?: number; caption?: string }
   | { split: PostBlock[]; image: string; alt: string; width: number; height: number; fit?: "contain" };
 
 export type LocalNewsPost = {
@@ -351,6 +362,34 @@ export type LocalNewsPost = {
 };
 
 export const localNews: LocalNewsPost[] = [
+  {
+    slug: "africa-tech-festival-2026",
+    title: "Sentech and DRM SA Showcase the Future of Digital Radio at Africa Tech Festival 2026",
+    image: "/images/news/africa-tech-festival-group.jpg",
+    hashtags: ["drm", "eLearning", "sentech", "dsb", "africatechfestival"],
+    body: [
+      "The DRM SA Group, hosted by Sentech on its exhibition stand, showcased Digital Radio Mondiale (DRM) technology at the Africa Tech Festival 2026, held at the Cape Town International Convention Centre (CTICC) from 17 to 19 November.",
+      "The demonstration provided an opportunity to introduce visitors and industry stakeholders to the capabilities of DRM digital sound broadcasting, including its digital radio services and integrated e-learning functionality. Two types of DRM receivers were also showcased, giving visitors a glimpse of the devices that listeners could use once digital radio broadcasts become available in South Africa.",
+      {
+        figure: "/images/news/africa-tech-festival-dreyer-thage.jpg",
+        alt: "A. Dreyer and Mr K. Thage at a table with a Starwaves DRM receiver on the Sentech stand",
+        width: 1280,
+        height: 853,
+        caption: "DRMSA Group Chairperson A. Dreyer with Sentech’s Chief Commercial Officer: Media Business Mr K. Thage",
+      },
+      "The participation formed part of Sentech’s efforts to demonstrate its technical capabilities and readiness to provide digital sound broadcasting services to radio broadcasters across South Africa.",
+      "Beyond improving the listening experience, DRM technology has the potential to expand access to educational content, emergency information and broadcasting services, particularly in underserved communities. This supports Sentech’s broader commitment to leveraging digital infrastructure to advance universal connectivity and digital inclusion.",
+      {
+        figure: "/images/news/africa-tech-festival-dreyer-zimri.jpg",
+        alt: "Aldred Dreyer with Mr Peter Zimri, who is holding a DRM receiver board, on the Sentech stand",
+        width: 1280,
+        height: 853,
+        caption: "Aldred Dreyer from the DRM SA group explaining DRM to Sentech’s Board member, Mr Peter Zimri",
+      },
+      "One of the themes at the Africa Tech Festival was expanding connectivity and services across Africa, which provided the ideal platform for the demonstration. DRM supports this vision by enabling more efficient use of spectrum, improved radio coverage, enhanced audio quality and the delivery of additional digital services, including educational content and emergency warning functionality.",
+      "The showcase highlighted the potential of DRM to contribute to the evolution of South Africa’s broadcasting landscape, while demonstrating the value of collaboration between Sentech, the DRM SA Group and the wider DRM Consortium in advancing digital radio across the region.",
+    ],
+  },
   {
     slug: "redesigned-website-launch",
     title: "DRM SA Group Launches Redesigned Website to Advance Digital Radio in Southern Africa",

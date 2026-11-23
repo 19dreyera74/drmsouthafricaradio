@@ -35,6 +35,7 @@ function renderBlock(block: PostBlock, i: number) {
           sizes="(max-width: 860px) 100vw, 820px"
           className={styles.figureImg}
         />
+        {block.caption && <figcaption className={styles.figureCaption}>{block.caption}</figcaption>}
       </figure>
     );
   if ("split" in block)
