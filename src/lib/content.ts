@@ -134,7 +134,7 @@ const articles: NewsArticle[] = [
     date: "2026-11-23",
     tag: "Events",
     tags: ["Demonstrations", "Sentech"],
-    title: "Sentech and DRM SA Showcase the Future of Digital Radio at Africa Tech Festival 2026",
+    title: "DRM SA and Sentech Showcase the Future of Digital Radio at Africa Tech Festival 2026",
     excerpt:
       "Hosted on Sentech’s stand, the DRM SA Group showcased Digital Radio Mondiale technology, e-learning and DRM receivers at the Africa Tech Festival 2026 in Cape Town.",
     body: [],
@@ -364,7 +364,7 @@ export type LocalNewsPost = {
 export const localNews: LocalNewsPost[] = [
   {
     slug: "africa-tech-festival-2026",
-    title: "Sentech and DRM SA Showcase the Future of Digital Radio at Africa Tech Festival 2026",
+    title: "DRM SA and Sentech Showcase the Future of Digital Radio at Africa Tech Festival 2026",
     image: "/images/news/africa-tech-festival-group.jpg",
     hashtags: ["drm", "eLearning", "sentech", "dsb", "africatechfestival"],
     body: [
