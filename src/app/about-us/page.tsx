@@ -42,7 +42,7 @@ export default function AboutPage() {
         title="Powering the future of radio in Southern Africa"
         sub="Introducing DRM SA GROUP — the revitalised voice of digital radio in South Africa."
         image="/images/about-poster-start.jpg"
-        video="/videos/about-journey.mp4"
+        video="/videos/about-journey-starwaves.mp4"
       />
 
       <section className={`${styles.section} wrap`}>
