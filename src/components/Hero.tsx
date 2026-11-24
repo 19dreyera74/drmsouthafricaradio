@@ -62,7 +62,7 @@ export default function Hero() {
           <video
             ref={videoRef}
             className={styles.bgVideo}
-            src="/videos/hero-journey.mp4"
+            src="/videos/hero-journey-starwaves.mp4"
             poster="/images/hero-radios.jpg"
             autoPlay
             muted
